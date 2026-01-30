@@ -129,10 +129,16 @@ void execute(Warehouse& w, int choice) {
 // Obtain the radius or height easily
 double getNumber(bool isRadius) {
     double value;
-    cout << (isRadius ? "Enter radius: " : "Enter height: ");
-    cin >> value;
+    do {
+        cout << (isRadius ? "Enter radius: " : "Enter height: ");
+        cin >> value;
+        if (value < 0) {
+            cout << "Value must be non-negative.\n";
+        }
+    } while (value < 0);
     return value;
 }
+
 
 // Prints the group/team information
 void teamInfo() {
@@ -140,3 +146,4 @@ void teamInfo() {
     cout << "\tIan Carrasco Rivera, ID #150700\n";
     cout << "\tKrizia Cortes Rubio, ID #155599\n";
 }
+
