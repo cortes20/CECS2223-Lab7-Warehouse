@@ -68,11 +68,12 @@ void Cylinder::print() const {
          << " | Volume: " << volume() << endl;
 }
 
-void Circle::generateID() {
+void Cylinder::generateID() {
     int num = count % 100;
     std::string numStr = std::to_string(num);
-    id = "CIR" + std::string(3 - numStr.length(), '0') + numStr;
-    // Result: CIR000, CIR001, ..., CIR099
+    id = "CYL" + std::string(3 - numStr.length(), '0') + std::to_string(100 + num);
+    // Result: CYL100, CYL101, ..., CYL199
 }
+
 
 
