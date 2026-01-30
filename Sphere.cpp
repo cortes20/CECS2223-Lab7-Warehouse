@@ -62,10 +62,11 @@ void Sphere::print() const {
          << " | Volume: " << volume() << endl;
 }
 
-void Sphere::generateID() {
+void Cylinder::generateID() {
     int num = count % 100;
-    id = "SPH" + to_string(200 + num);
+    std::string numStr = std::to_string(num);
+    id = "CYL" + std::string(3 - numStr.length(), '0') + std::to_string(100 + num);
+    // Result: CYL100, CYL101, ..., CYL199
 }
 
-}
 
