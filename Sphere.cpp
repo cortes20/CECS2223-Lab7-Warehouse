@@ -63,5 +63,9 @@ void Sphere::print() const {
 }
 
 void Sphere::generateID() {
-    id = "SPH" + to_string(200 + count);
+    int num = count % 100;
+    id = "SPH" + to_string(200 + num);
 }
+
+}
+
