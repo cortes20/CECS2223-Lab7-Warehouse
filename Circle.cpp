@@ -65,8 +65,9 @@ void Circle::print() const {
 
 void Circle::generateID() {
     int num = count % 100;
-    id = "CIR" + (num < 10 ? "0" : "") + to_string(num);
+    std::string numStr = std::to_string(num);
+    id = "CIR" + std::string(3 - numStr.length(), '0') + numStr;
+    // Result: CIR000, CIR001, ..., CIR099
 }
 
-}
 
