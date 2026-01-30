@@ -69,5 +69,9 @@ void Cylinder::print() const {
 }
 
 void Cylinder::generateID() {
-    id = "CYL" + to_string(100 + count);
+    int num = count % 100;
+    id = "CYL" + to_string(100 + num);
 }
+
+}
+
