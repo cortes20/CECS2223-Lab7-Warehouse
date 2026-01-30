@@ -123,31 +123,91 @@ void Warehouse::deleteSphere(int index) {
 // Display all the cylinders stored
 void Warehouse::displayCylinders() const {
     cout << "\n--- Cylinders in Warehouse: " << name << " ---\n";
+
+    cout << left << setw(10) << "CIR_ID"
+         << setw(10) << "CYL_ID"
+         << setw(10) << "SPH_ID"
+         << setw(10) << "Radius"
+         << setw(10) << "Height"
+         << setw(10) << "Area"
+         << setw(10) << "Volume" << endl;
+
     if (cylinderCount == 0) {
         cout << "No cylinders available.\n";
         return;
     }
 
     for (int i = 0; i < cylinderCount; i++) {
-        cylinders[i]->print();
+        cout << left << setw(10) << ""
+             << setw(10) << cylinders[i]->getID()
+             << setw(10) << ""
+             << setw(10) << fixed << setprecision(2) << cylinders[i]->getRadius()
+             << setw(10) << cylinders[i]->getHeight()
+             << setw(10) << cylinders[i]->area()
+             << setw(10) << cylinders[i]->volume() << endl;
     }
 }
 
 // Display all the spheres stored
 void Warehouse::displaySpheres() const {
     cout << "\n--- Spheres in Warehouse: " << name << " ---\n";
+
+    cout << left << setw(10) << "CIR_ID"
+         << setw(10) << "CYL_ID"
+         << setw(10) << "SPH_ID"
+         << setw(10) << "Radius"
+         << setw(10) << "Height"
+         << setw(10) << "Area"
+         << setw(10) << "Volume" << endl;
+
     if (sphereCount == 0) {
         cout << "No spheres available.\n";
         return;
     }
 
     for (int i = 0; i < sphereCount; i++) {
-        spheres[i]->print();
+        cout << left << setw(10) << ""
+             << setw(10) << ""
+             << setw(10) << spheres[i]->getID()
+             << setw(10) << fixed << setprecision(2) << spheres[i]->getRadius()
+             << setw(10) << ""
+             << setw(10) << ""
+             << setw(10) << spheres[i]->volume() << endl;
     }
 }
 
+
 // Display all the objects that are stored
 void Warehouse::displayAll() const {
-    displayCylinders();
-    displaySpheres();
+    cout << "\n--- All Objects in Warehouse: " << name << " ---\n";
+
+    cout << left << setw(10) << "CIR_ID"
+         << setw(10) << "CYL_ID"
+         << setw(10) << "SPH_ID"
+         << setw(10) << "Radius"
+         << setw(10) << "Height"
+         << setw(10) << "Area"
+         << setw(10) << "Volume" << endl;
+
+    // Cylinders
+    for (int i = 0; i < cylinderCount; i++) {
+        cout << left << setw(10) << ""
+             << setw(10) << cylinders[i]->getID()
+             << setw(10) << ""
+             << setw(10) << fixed << setprecision(2) << cylinders[i]->getRadius()
+             << setw(10) << cylinders[i]->getHeight()
+             << setw(10) << cylinders[i]->area()
+             << setw(10) << cylinders[i]->volume() << endl;
+    }
+
+    // Spheres
+    for (int i = 0; i < sphereCount; i++) {
+        cout << left << setw(10) << ""
+             << setw(10) << ""
+             << setw(10) << spheres[i]->getID()
+             << setw(10) << fixed << setprecision(2) << spheres[i]->getRadius()
+             << setw(10) << ""
+             << setw(10) << ""
+             << setw(10) << spheres[i]->volume() << endl;
+    }
 }
